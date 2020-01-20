@@ -90,18 +90,22 @@
 
     <v-content>
       <!-- <HelloWorld/> -->
+      <CredentialsForm/>
+
     </v-content>
   </v-app>
 </template>
 
 <script>
 // import HelloWorld from './components/HelloWorld';
+import CredentialsForm from './components/CredentialsForm';
 
 export default {
   name: 'App',
 
   components: {
     // HelloWorld,
+    CredentialsForm,
   },
 
   props: {
