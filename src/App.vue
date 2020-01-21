@@ -90,7 +90,66 @@
 
     <v-content>
       <!-- <HelloWorld/> -->
-      <CredentialsForm/>
+
+      <v-container class="grey lighten-5">
+        <v-row>
+
+          <v-col
+            cols="12"
+            sm="4"
+          >
+            <v-card
+              class="pa-2"
+              outlined
+              tile
+            >
+
+              <v-card-title>
+                Auth0 Credentials
+              </v-card-title>
+              <CredentialsForm/>
+
+            </v-card>
+          </v-col>
+
+          <v-col
+            cols="12"
+            sm="4"
+          >
+            <v-card
+              class="pa-2"
+              outlined
+              tile
+            >
+
+              <v-card-title>
+                Tokens
+              </v-card-title>
+              <!-- <CredentialsForm/> -->
+
+            </v-card>
+          </v-col>
+
+          <v-col
+            cols="12"
+            sm="4"
+          >
+            <v-card
+              class="pa-2"
+              outlined
+              tile
+            >
+
+              <v-card-title>
+                Login
+              </v-card-title>
+              <!-- <CredentialsForm/> -->
+
+            </v-card>
+          </v-col>
+
+        </v-row>
+      </v-container>
 
     </v-content>
   </v-app>
