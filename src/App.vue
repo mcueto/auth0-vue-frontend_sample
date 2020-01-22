@@ -23,7 +23,29 @@
 
         <v-list-item @click.stop="right = !right">
           <v-list-item-action>
-            <v-icon>mdi-exit-to-app</v-icon>
+            <v-icon>mdi-menu-right</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+            <v-list-item-title>
+              <router-link to="/">Home</router-link>
+            </v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+
+        <v-list-item @click.stop="right = !right">
+          <v-list-item-action>
+            <v-icon>mdi-menu-right</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+            <v-list-item-title>
+              <router-link to="/about">About</router-link>
+            </v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+
+        <v-list-item @click.stop="right = !right">
+          <v-list-item-action>
+            <v-icon>mdi-link</v-icon>
           </v-list-item-action>
           <v-list-item-content>
             <v-list-item-title>
@@ -34,7 +56,7 @@
 
         <v-list-item @click.stop="right = !right">
           <v-list-item-action>
-            <v-icon>mdi-exit-to-app</v-icon>
+            <v-icon>mdi-link</v-icon>
           </v-list-item-action>
           <v-list-item-content>
             <v-list-item-title>
@@ -149,6 +171,29 @@
           </v-col>
 
         </v-row>
+
+        <v-row>
+
+          <v-col
+            cols="12"
+            sm="12"
+          >
+            <v-card
+              class="pa-2"
+              outlined
+              tile
+            >
+
+              <v-card-title>
+                Router view
+              </v-card-title>
+              <router-view></router-view>
+
+            </v-card>
+          </v-col>
+
+        </v-row>
+
       </v-container>
 
     </v-content>
