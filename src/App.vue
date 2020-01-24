@@ -43,6 +43,17 @@
           </v-list-item-content>
         </v-list-item>
 
+        <v-list-item @click.stop="right = !right" v-if="$auth.isAuthenticated">
+          <v-list-item-action>
+            <v-icon>mdi-menu-right</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+            <v-list-item-title>
+                <router-link to="/profile">Profile</router-link>
+            </v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+
         <v-list-item @click.stop="right = !right">
           <v-list-item-action>
             <v-icon>mdi-link</v-icon>
@@ -183,7 +194,13 @@
               <v-card-title>
                 Login
               </v-card-title>
-              <!-- <CredentialsForm/> -->
+
+              <div v-if="!$auth.loading">
+                <!-- show login when not authenticated -->
+                <button v-if="!$auth.isAuthenticated" @click="login">Log in</button>
+                <!-- show logout when authenticated -->
+                <button v-if="$auth.isAuthenticated" @click="logout">Log out</button>
+              </div>
 
             </v-card>
           </v-col>
@@ -260,6 +277,19 @@ export default {
       return JSON.stringify(
         decoded_data
       )
+    }
+  },
+
+  methods: {
+    // Log the user in
+    login() {
+      this.$auth.loginWithRedirect();
+    },
+    // Log the user out
+    logout() {
+      this.$auth.logout({
+        returnTo: window.location.origin
+      });
     }
   }
 
