@@ -147,6 +147,24 @@
               <v-card-title>
                 Tokens
               </v-card-title>
+
+              <v-form v-model="valid">
+                <v-container>
+
+                  <v-text-field
+                  v-model="auth0Token"
+                  label="AUTH0 TOKEN"
+                  ></v-text-field>
+
+                  <v-textarea
+                  v-model="auth0DecodedToken"
+                  label="AUTH0 DECODED TOKEN"
+                  ></v-textarea>
+
+                </v-container>
+              </v-form>
+
+
               <!-- <CredentialsForm/> -->
 
             </v-card>
@@ -202,7 +220,10 @@
 
 <script>
 // import HelloWorld from './components/HelloWorld';
+// var jwtDecode = require('jwt-decode');
+import * as JWT from 'jwt-decode';
 import CredentialsForm from './components/CredentialsForm';
+
 
 export default {
   name: 'App',
@@ -221,7 +242,26 @@ export default {
     drawerRight: null,
     right: false,
     left: false,
+    auth0Token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c',
   }),
+
+  computed: {
+    // a computed getter
+    auth0DecodedToken: function () {
+      // `this` points to the vm instance
+      let decoded_data = {}
+
+      try {
+        decoded_data = JWT(this.auth0Token)
+      } catch (e) {
+        decoded_data = {}
+      }
+
+      return JSON.stringify(
+        decoded_data
+      )
+    }
+  }
 
 };
 </script>
